@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: demo
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+              - column:
+                  name: last_name
+                  type: varchar(50)
+              - column:
+                  name: email
+                  type: varchar(50)
+              - column:
+                  name: phone
+                  type: varchar(20)
+              - column:
+                  name: address
+                  type: varchar(100)
+              - column:
+                  name: city
+                  type: varchar(50)
+              - column:
+                  name: state
+                  type: varchar(50)
+              - column:
+                  name: country
+                  type: varchar(50)
+              - column:
+                  name: zip_code
+                  type: varchar(10)
+
+
+  - changeSet:
+      id: 2
+      author: harsh
+      changes:
+        - sqlFile:
+            path: liquibase/insert-users.sql
+            relativeToChangelogFile: true
